@@ -26,9 +26,7 @@ The website is fully private, served securely through CloudFront protected with 
 </div>
 
 4.	**Create bucket**
-5.  Upload Website Files:
-
- Upload index.html, CSS, JS
+5.  Upload Website Files: Upload the index.html, CSS, JS files
 
 <div align="center">
       <img src="Project-01/Images/Part-01/S3/Upload.png" width=100%>
