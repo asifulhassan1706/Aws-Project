@@ -47,8 +47,17 @@ Files remain private (**no public access**)
 ### Step 2: Create CloudFront Distribution with OAI
 
 1.	Go to CloudFront → **Create distribution**
-
+<div align="center">
+      <img src="Project-01/Images/Part-01/Cloudfront/distributionname.png" width=100%>
+</div>
 2.	Origin domain: **Choose your S3 bucket**
+<div align="center">
+      <img src="Project-01/Images/Part-01/CloudFront/defaultorigin.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/CloudFront/browses3.png3.png" width=100%>
+</div>
 
 3.	Origin access:
 
@@ -61,14 +70,25 @@ Files remain private (**no public access**)
 7.	Default root object: ``index.html``
 8.	**Create distribution** and wait until **Deployed**
 
+<div align="center">
+      <img src="Project-01/Images/Part-01/Cloudfront/wafdisable.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/Cloudfront/deployed.png" width=100%>
+</div>
+
 ### Test:
 •	Visit your CloudFront domain 
+<div align="center">
+      <img src="Project-01/Images/Part-01/Cloudfront/link.png" width=100%>
+</div>
+### Alert:
+<div align="center">
+      <img src="Project-01/Images/Part-01/Cloudfront/outputofcloudfrontbefore.png" width=100%>
+</div>
 
-**Example :**
-  ```url 
-   https://dXXXX.cloudfront.net
-  ```
-•	You should see your ```index.html```
+Solve : Scroll down and Go to problem statement
 
 ### Step 3: Attach AWS WAF to CloudFront
 1.	Go to WAF & Shield → Web ACLs → **Create web ACL**
