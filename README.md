@@ -62,6 +62,10 @@ The website is fully private, served securely through CloudFront protected with 
       <img src="Project-01/Images/Part-01/CloudFront/browses3.png" width=100%>
 </div>
 
+<div align="center">
+      <img src="Project-01/Images/Part-01/CloudFront/settingofcloudfront.png" width=100%>
+</div>
+
 3.	Origin access:
 
      •	Select **Origin Access Identity (OAI)**
