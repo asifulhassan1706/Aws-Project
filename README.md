@@ -56,13 +56,9 @@ The website is fully private, served securely through CloudFront protected with 
 4.	Enable Store full logs ✅
 
 Sample Log JSON:
-{
-  "action": "BLOCK",
-  "httpSourceIp": "103.15.120.50",
-  "httpUri": "/admin.php",
-  "country": "BD",
-  "terminatingRuleId": "AWS-AWSManagedRulesCommonRuleSet"
-}
+<div align="center">
+      <img src="Project-01/Images/code.png" width=100%>
+</div>
 
 ### Step 5: Set Up Amazon SNS for Notifications (Independent)
 1.	Go to Amazon SNS → Create topic
