@@ -6,7 +6,7 @@ This project demonstrates hosting a secure static website on AWS using:
 Amazon S3 (Private) + CloudFront (OAI) + WAF + CloudWatch Logs + SNS + CloudWatch Alarm + Cost Explorer & Budgets
 ## 📂 Architecture Diagram
 <div align="center">
-      <img src="Project01/Images/Architechture of this project.png" width=100%>
+      <img src="Project-01/Images/Architechture of this project" width=100%>
 </div>
   
 The website is fully private, served securely through CloudFront protected with AWS WAF, monitored via CloudWatch and cost-managed with Budgets and Cost Explorer.
