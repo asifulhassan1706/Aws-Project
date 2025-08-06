@@ -34,8 +34,9 @@ The website is fully private, served securely through CloudFront protected with 
 
 ### Test:
 •	Visit your CloudFront domain 
-  ```url
-   (e.g., https://dXXXX.cloudfront.net)
+example :
+  ```url 
+   (https://dXXXX.cloudfront.net)
   ```
 •	You should see your index.html
 
