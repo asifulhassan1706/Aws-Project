@@ -17,7 +17,6 @@ The website is fully private, served securely through CloudFront protected with 
 
 1.	Navigate to AWS Console → S3 → **Create bucket**
 
-<<<<<<< HEAD
 2.	Bucket name: ``awsfirst-project`` name should be unique
 
 
@@ -25,18 +24,12 @@ The website is fully private, served securely through CloudFront protected with 
 <div align="center">
       <img src="Project-01/Images/Part-01/S3/S3AccessBlock.png" width=100%>
 </div>
-=======
-2.	Bucket name: ``awsfirst-project``
 
-3.	Block Public Access: **Enable** all options ✅
-
->>>>>>> ed82d0d90078743aa55d059c44e1399641a6687d
 4.	**Create bucket**
-
 5.  Upload Website Files:
 
-<<<<<<< HEAD
-Upload index.html, CSS, JS
+ Upload index.html, CSS, JS
+
 <div align="center">
       <img src="Project-01/Images/Part-01/S3/Upload.png" width=100%>
 </div>
@@ -50,10 +43,7 @@ Files remain private (**no public access**)
 <div align="center">
       <img src="Project-01/Images/Part-01/S3/Outputofs3.png" width=100%>
 </div>
-=======
-            •	Upload index.html, CSS, JS
-            •	Files remain private (**no public access**)
->>>>>>> ed82d0d90078743aa55d059c44e1399641a6687d
+
 ### Step 2: Create CloudFront Distribution with OAI
 
 1.	Go to CloudFront → **Create distribution**
