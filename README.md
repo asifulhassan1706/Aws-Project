@@ -47,16 +47,19 @@ The website is fully private, served securely through CloudFront protected with 
 ### Step 2: Create CloudFront Distribution with OAI
 
 1.	Go to CloudFront → **Create distribution**
+
 <div align="center">
       <img src="Project-01/Images/Part-01/Cloudfront/distributionname.png" width=100%>
 </div>
+
 2.	Origin domain: **Choose your S3 bucket**
+
 <div align="center">
-      <img src="Project-01/Images/Part-01/CloudFront/defaultorigin.png" width=100%>
+      <img src="Project-01/Images/Part-01/CloudFront/defaultorigin.png" width=100%>   
 </div>
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/CloudFront/browses3.png3.png" width=100%>
+      <img src="Project-01/Images/Part-01/CloudFront/browses3.png.png" width=100%>
 </div>
 
 3.	Origin access:
@@ -74,21 +77,25 @@ The website is fully private, served securely through CloudFront protected with 
       <img src="Project-01/Images/Part-01/Cloudfront/wafdisable.png" width=100%>
 </div>
 
+
 <div align="center">
       <img src="Project-01/Images/Part-01/Cloudfront/deployed.png" width=100%>
 </div>
 
 ### Test:
 •	Visit your CloudFront domain 
+
 <div align="center">
       <img src="Project-01/Images/Part-01/Cloudfront/link.png" width=100%>
 </div>
-### Alert:
+
+**Alert:** Don't be panic.
+
 <div align="center">
       <img src="Project-01/Images/Part-01/Cloudfront/outputofcloudfrontbefore.png" width=100%>
 </div>
 
-Solve : Scroll down and Go to problem statement
+**Solve:** Scroll down and Go to problem statement
 
 ### Step 3: Attach AWS WAF to CloudFront
 1.	Go to WAF & Shield → Web ACLs → **Create web ACL**
