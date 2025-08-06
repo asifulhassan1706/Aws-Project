@@ -17,7 +17,6 @@ The website is fully private, served securely through CloudFront protected with 
 
 1.	Navigate to AWS Console → S3 → **Create bucket**
 
-<<<<<<< HEAD
 2.	Bucket name: ``awsfirst-project`` name should be unique
 
 
