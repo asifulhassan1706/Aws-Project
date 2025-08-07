@@ -132,7 +132,7 @@ The website is fully private, served securely through CloudFront protected with 
       <img src="Project-01/Images/Part-01/WAF/Cloudfrontdistribution.png" width=100%>
 </div>
 
-4.	Add AWS Managed Rules:
+4. **Add AWS Managed Rules:**
 
     • **AWSManagedRulesCommonRuleSet (common attacks)**
 
@@ -158,7 +158,7 @@ The website is fully private, served securely through CloudFront protected with 
       <img src="Project-01/Images/Part-01/WAF/counttoblock.png" width=80%>
 </div>
 
-5.	Create Web ACL
+5.  **Create Web ACL**
 
 <div align="center">
       <img src="Project-01/Images/Part-01/WAF/requestsampling.png" width=100%>
@@ -167,7 +167,8 @@ The website is fully private, served securely through CloudFront protected with 
 <div align="center">
       <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
 </div>
-**Output of WAF:**
+
+ **Output of WAF:**
 
 <div align="center">
       <img src="Project-01/Images/Part-01/Output/WAF Output.png" width=100%>
@@ -206,6 +207,7 @@ The website is fully private, served securely through CloudFront protected with 
 <div align="center">
       <img src="Project-01/Images/Part-01/CloudWatch Log/6.png" width=100%>
 </div>
+
 4.	Enable Store full logs ✅
 
 <div align="center">
