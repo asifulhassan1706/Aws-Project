@@ -167,7 +167,7 @@ The website is fully private, served securely through CloudFront protected with 
 <div align="center">
       <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
 </div>
-Output of WAF: 
+**Output of WAF:**
 
 <div align="center">
       <img src="Project-01/Images/Part-01/Output/WAF Output.png" width=100%>
