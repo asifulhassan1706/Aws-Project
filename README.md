@@ -75,7 +75,7 @@ The website is fully private, served securely through CloudFront protected with 
 </div>
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/CloudFront/browses3.png.png" width=100%>
+      <img src="Project-01/Images/Part-01/CloudFront/browses3.png" width=100%>
 </div>
 
 3.	Origin access:
@@ -90,12 +90,12 @@ The website is fully private, served securely through CloudFront protected with 
 8.	**Create distribution** and wait until **Deployed**
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/Cloudfront/wafdisable.png" width=100%>
+      <img src="Project-01/Images/Part-01/CloudFront/wafdisable.png" width=100%>
 </div>
 
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/Cloudfront/deployed.png" width=100%>
+      <img src="Project-01/Images/Part-01/CloudFront/deployed.png" width=100%>
 </div>
 
 ### Test: Visit your CloudFront domain 
