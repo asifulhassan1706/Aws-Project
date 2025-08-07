@@ -116,13 +116,13 @@ The website is fully private, served securely through CloudFront protected with 
 
 1.	Go to WAF & Shield → Web ACLs → **Create web ACL**
 
-2.	Region: **Global (CloudFront)**
+2. Region: **Global (CloudFront)**
 
 <div align="center">
       <img src="Project-01/Images/Part-01/WAF/CreateWebAcl.png" width=100%>
 </div>
 
-3.	Resources to protect: Select your CloudFront distribution
+3.  **Resources to protect:** Select your CloudFront distribution
 
 <div align="center">
       <img src="Project-01/Images/Part-01/WAF/resources.png" width=100%>
@@ -132,7 +132,7 @@ The website is fully private, served securely through CloudFront protected with 
       <img src="Project-01/Images/Part-01/WAF/Cloudfrontdistribution.png" width=100%>
 </div>
 
-4.	Add AWS Managed Rules:
+4. **Add AWS Managed Rules:**
 
     • **AWSManagedRulesCommonRuleSet (common attacks)**
 
@@ -155,10 +155,10 @@ The website is fully private, served securely through CloudFront protected with 
 </div>
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/WAF/counttoblock.png" width=100%>
+      <img src="Project-01/Images/Part-01/WAF/counttoblock.png" width=80%>
 </div>
 
-5.	Create Web ACL
+5.  **Create Web ACL**
 
 <div align="center">
       <img src="Project-01/Images/Part-01/WAF/requestsampling.png" width=100%>
@@ -167,7 +167,8 @@ The website is fully private, served securely through CloudFront protected with 
 <div align="center">
       <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
 </div>
-Output of WAF: 
+
+ **Output of WAF:**
 
 <div align="center">
       <img src="Project-01/Images/Part-01/Output/WAF Output.png" width=100%>
@@ -206,6 +207,7 @@ Output of WAF:
 <div align="center">
       <img src="Project-01/Images/Part-01/CloudWatch Log/6.png" width=100%>
 </div>
+
 4.	Enable Store full logs ✅
 
 <div align="center">
@@ -223,7 +225,15 @@ Output of WAF:
 1.	Go to Amazon SNS → **Create topic**
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+      <img src="Project-01/Images/Part-02/SNS/1.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-02/SNS/2.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-02/SNS/3.png" width=100%>
 </div>
 
     ```Type: Standard```
@@ -232,19 +242,35 @@ Output of WAF:
              Protocol:  Email → **Add your email**
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+      <img src="Project-01/Images/Part-02/SNS/4.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-02/SNS/5.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-02/SNS/6.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-02/SNS/7.png" width=100%>
 </div>
 
 4.	Check your inbox and Confirm subscription
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+      <img src="Project-01/Images/Part-02/SNS/8.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-02/SNS/9.png" width=100%>
 </div>
 
 5.	You can now manually publish notifications or link with alarms later if needed
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+      <img src="Project-01/Images/Part-02/Output/After crossing tresholed.png" width=100%>
 </div>
 
 ✅ SNS is now ready to send notifications separately.
