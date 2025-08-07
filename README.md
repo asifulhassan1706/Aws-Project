@@ -116,13 +116,13 @@ The website is fully private, served securely through CloudFront protected with 
 
 1.	Go to WAF & Shield → Web ACLs → **Create web ACL**
 
-2.	Region: **Global (CloudFront)**
+2. Region: **Global (CloudFront)**
 
 <div align="center">
       <img src="Project-01/Images/Part-01/WAF/CreateWebAcl.png" width=100%>
 </div>
 
-3.	Resources to protect: Select your CloudFront distribution
+3.  **Resources to protect:** Select your CloudFront distribution
 
 <div align="center">
       <img src="Project-01/Images/Part-01/WAF/resources.png" width=100%>
