@@ -363,11 +363,9 @@ The website is fully private, served securely through CloudFront protected with 
 •	**SNS Notifications** for alerts.
 
 •	**CloudWatch Alarm** for blocked traffic spikes.
-
-            <div align="center">
-                  <img src="Project-01/Images/Part-02/CloudWatch Alarm/alarm output.png" width=100%>
-            </div>
-
+<div align="center">
+      <img src="Project-01/Images/Part-02/CloudWatch Alarm/alarm output.png" width=100%>
+</div>
 •	Cost Management with **AWS Budgets and Cost Explorer**.
 
 ### Problem Statement ⚠️
@@ -383,7 +381,32 @@ The website is fully private, served securely through CloudFront protected with 
 **Solution:**
 
 1.	Updated the CloudFront Distribution → Settings → **Default Root Object to ``index.html``**
-2.	After deployment, the website loaded successfully.
+<div align="center">
+      <img src="Project-01/Images/Part-01/Problem Statement/cloudfront1.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/Problem Statement/cloudfront2.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/Problem Statement/cloudfront3.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/Problem Statement/cloudfront4.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/Problem Statement/cloudfront5.png" width=100%>
+</div>
+
+2.	**After deployment, the website loaded successfully.**
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/Problem Statement/output.png" width=100%>
+</div>
+
 
 2️⃣**CloudWatch Logs did not capture WAF logs**
 
