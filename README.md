@@ -5,20 +5,35 @@
 
 *Amazon S3 (Private) + CloudFront (OAI) + WAF + CloudWatch Logs + SNS + CloudWatch Alarm + Cost Explorer & Budgets*
 
-## 📂 Architecture Diagram
+The website is fully private, served securely through CloudFront protected with AWS WAF monitored via CloudWatch and cost-managed with Budgets and Cost Explorer.
+
+## Architecture Overview
+**S3 Bucket:** Stores static website files (index.html, CSS, JS).
+
+**CloudFront:** Delivers content securely with HTTPS and caching.
+
+**Origin Access Identity (OAI):** Ensures S3 is private and only accessible via CloudFront.
+
+**AWS WAF:** Protects against malicious requests and common attacks.
+
+**CloudWatch Logs & Alarms:** Monitors traffic, blocks, and sends notifications.
+
+**Cost Explorer & Budgets:** Tracks AWS spending and triggers budget alerts.
+
+## Architecture Diagram
+
 <div align="center">
       <img src="Project-01/Images/Diagram.png" width=100%>
 </div>
   
-The website is fully private, served securely through CloudFront protected with AWS WAF monitored via CloudWatch and cost-managed with Budgets and Cost Explorer.
+
 ## 📋 Detailed Step-by-Step Setup
 
-### Step 1: Create a Private S3 Bucket
+### 🛠 Step 1:  Create a Private S3 Bucket
 
 1.	Navigate to AWS Console → S3 → **Create bucket**
 
-2.	Bucket name: ``awsfirst-project`` name should be unique
-
+2.	Enter a unique bucket name: ``awsfirst-project`` 
 
 3.	Block Public Access: **Enable** all options ✅
 <div align="center">
@@ -26,7 +41,8 @@ The website is fully private, served securely through CloudFront protected with 
 </div>
 
 4.	**Create bucket**
-5.  **Upload Website Files**:  1. Upload the ``index.html, CSS, JS files``
+
+5.  **Upload Website Files**: Open the bucket → Upload Add → ``index.html`` and other assets
 
 <div align="center">
       <img src="Project-01/Images/Part-01/S3/Upload.png" width=100%>
@@ -35,7 +51,7 @@ The website is fully private, served securely through CloudFront protected with 
       <img src="Project-01/Images/Part-01/S3/Addfiles.png" width=100%>
 </div>
 
-2.  **Files remain private** (**no public access**)
+**Files remain private** (**no public access**)
 
 <div align="center">
       <img src="Project-01/Images/Part-01/S3/CheckingBlock.png" width=100%>
@@ -44,19 +60,22 @@ The website is fully private, served securely through CloudFront protected with 
       <img src="Project-01/Images/Part-01/S3/Outputofs3.png" width=100%>
 </div>
 
-### Step 2: Create CloudFront Distribution with OAI
+### 🛠 Step 2: Create CloudFront Distribution with OAI
 
 1.	Go to CloudFront → **Create distribution**
+
 <div align="center">
-      <img src="Project-01/Images/Part-01/Cloudfront/distributionname.png" width=100%>
+      <img src="Project-01/Images/Part-01/CloudFront/distributionname.png" width=100%>
 </div>
+
 2.	Origin domain: **Choose your S3 bucket**
+
 <div align="center">
-      <img src="Project-01/Images/Part-01/CloudFront/defaultorigin.png" width=100%>
+      <img src="Project-01/Images/Part-01/CloudFront/defaultorigin.png" width=100%>   
 </div>
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/CloudFront/browses3.png3.png" width=100%>
+      <img src="Project-01/Images/Part-01/CloudFront/browses3.png" width=100%>
 </div>
 
 3.	Origin access:
@@ -71,31 +90,47 @@ The website is fully private, served securely through CloudFront protected with 
 8.	**Create distribution** and wait until **Deployed**
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/Cloudfront/wafdisable.png" width=100%>
+      <img src="Project-01/Images/Part-01/CloudFront/wafdisable.png" width=100%>
 </div>
+
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/Cloudfront/deployed.png" width=100%>
+      <img src="Project-01/Images/Part-01/CloudFront/deployed.png" width=100%>
 </div>
 
-### Test:
-•	Visit your CloudFront domain 
+### Test: Visit your CloudFront domain 
+
 <div align="center">
-      <img src="Project-01/Images/Part-01/Cloudfront/link.png" width=100%>
+      <img src="Project-01/Images/Part-01/CloudFront/link.png" width=100%>
 </div>
-### Alert:
+
+**Alert:** Don't be panic.
+
 <div align="center">
-      <img src="Project-01/Images/Part-01/Cloudfront/outputofcloudfrontbefore.png" width=100%>
+      <img src="Project-01/Images/Part-01/CloudFront/outputofcloudfrontbefore.png" width=100%>
 </div>
 
-Solve : Scroll down and Go to problem statement
+**Solve:** Scroll down this file and Go to problem statement
 
-### Step 3: Attach AWS WAF to CloudFront
+### 🛡 Step 3 : Attach AWS WAF to CloudFront
+
 1.	Go to WAF & Shield → Web ACLs → **Create web ACL**
 
 2.	Region: **Global (CloudFront)**
 
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/CreateWebAcl.png" width=100%>
+</div>
+
 3.	Resources to protect: Select your CloudFront distribution
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/resources.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/Cloudfrontdistribution.png" width=100%>
+</div>
 
 4.	Add AWS Managed Rules:
 
@@ -103,53 +138,149 @@ Solve : Scroll down and Go to problem statement
 
     • **AWSManagedRulesKnownBadInputsRuleSet (SQL Injection, XSS)**
 
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/rulesadd.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/rulesadd.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/selecting rules.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/selectingrules.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/counttoblock.png" width=100%>
+</div>
+
 5.	Create Web ACL
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/requestsampling.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+</div>
+Output of WAF: 
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/Output/WAF Output.png" width=100%>
+</div>
 
 ✅ Your website is now protected from SQL Injection and XSS attacks.
 
-### Step 4: Enable CloudWatch Logs for WAF
+### 📊 Step 4 : Enable CloudWatch Logs for WAF
 
 1.	Navigate to WAF → Your Web ACL → **Logging and metrics tab**
 
+<div align="center">
+      <img src="Project-01/Images/Part-01/CloudWatch Log/1.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/CloudWatch Log/2.png" width=100%>
+</div>
+
 2.	Click Enable logging → **CloudWatch Logs**
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/CloudWatch Log/3.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/CloudWatch Log/4.png" width=100%>
+</div>
 
 3.	Create log group: ```aws-waf-logs-webacl-first```
 
+<div align="center">
+      <img src="Project-01/Images/Part-01/CloudWatch Log/5.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/CloudWatch Log/6.png" width=100%>
+</div>
 4.	Enable Store full logs ✅
 
-Sample Log JSON:
+<div align="center">
+      <img src="Project-01/Images/Part-01/CloudWatch Log/7.png" width=100%>
+</div>
+
+### Sample Log JSON:
 
 <div align="center">
       <img src="Project-01/Images/code.png" width=100%>
 </div>
 
-### Step 5: Set Up Amazon SNS for Notifications (Independent)
+### ⏰ Step 5: Set Up Amazon SNS for Notifications (Independent)
 
 1.	Go to Amazon SNS → **Create topic**
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+</div>
 
     ```Type: Standard```
 	```Sample Name: WAFNotifications```
 2.	Create subscription →
              Protocol:  Email → **Add your email**
 
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+</div>
+
 4.	Check your inbox and Confirm subscription
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+</div>
 
 5.	You can now manually publish notifications or link with alarms later if needed
 
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+</div>
+
 ✅ SNS is now ready to send notifications separately.
 
-### Step 6: Create a CloudWatch Alarm for WAF Activity
+### 💰 Step 6: Create a CloudWatch Alarm for WAF Activity
 1.	Go to CloudWatch → Alarms → **Create alarm**
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+</div>
 
 2.	Select metric: ```WAFV2 → WebACL → BlockedRequests```
 
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+</div>
+
 3.	**Threshold example:** Trigger if >= 60 requests within 1 minutes
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+</div>
 
 4.	Alarm action:
 
       • Send notification to your existing SNS topic (WAFNotifications)
 
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+</div>
+
 5.	Alarm name:  ```WAF-BlockedRequests-High``` → **Create alarm**
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+</div>
 
 ✅ You will receive email alerts whenever the blocked requests exceed the threshold.
 
@@ -159,6 +290,14 @@ Sample Log JSON:
 2.	Budgets → **Create budget** → **Cost budget**
 
      ```Example: $5 per month``` Add your email for budget alerts
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+</div>
 
 3.	Monitor usage and spending in Cost Explorer dashboard
 
