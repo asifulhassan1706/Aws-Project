@@ -208,7 +208,7 @@ The website is fully private, served securely through CloudFront protected with 
       <img src="Project-01/Images/Part-01/CloudWatch Log/6.png" width=100%>
 </div>
 
-4.	Enable Store full logs ✅
+4.	**Enable** Store full logs ✅
 
 <div align="center">
       <img src="Project-01/Images/Part-01/CloudWatch Log/7.png" width=100%>
@@ -222,7 +222,7 @@ The website is fully private, served securely through CloudFront protected with 
 
 ### ⏰ Step 5: Set Up Amazon SNS for Notifications (Independent)
 
-1.	Go to Amazon SNS → **Create topic**
+1.	Go to **Amazon SNS** → **Create topic**
 
 <div align="center">
       <img src="Project-01/Images/Part-02/SNS/1.png" width=100%>
@@ -236,12 +236,13 @@ The website is fully private, served securely through CloudFront protected with 
       <img src="Project-01/Images/Part-02/SNS/3.png" width=100%>
 </div>
 
-   Type: Standard
+   **Type:** Standard
    
-   Sample Name: ``WAFNotifications``
+   **Sample Name:** ``WAFNotifications``
    
-2.	Create subscription →
-             Protocol:  Email → **Add your email**
+2.	**Create subscription** →
+             Protocol:  
+             **Email** → **Add your email**
 
 <div align="center">
       <img src="Project-01/Images/Part-02/SNS/4.png" width=100%>
