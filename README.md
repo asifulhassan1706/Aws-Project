@@ -5,20 +5,35 @@
 
 *Amazon S3 (Private) + CloudFront (OAI) + WAF + CloudWatch Logs + SNS + CloudWatch Alarm + Cost Explorer & Budgets*
 
-## 📂 Architecture Diagram
+The website is fully private, served securely through CloudFront protected with AWS WAF monitored via CloudWatch and cost-managed with Budgets and Cost Explorer.
+
+## Architecture Overview
+**S3 Bucket:** Stores static website files (index.html, CSS, JS).
+
+**CloudFront:** Delivers content securely with HTTPS and caching.
+
+**Origin Access Identity (OAI):** Ensures S3 is private and only accessible via CloudFront.
+
+**AWS WAF:** Protects against malicious requests and common attacks.
+
+**CloudWatch Logs & Alarms:** Monitors traffic, blocks, and sends notifications.
+
+**Cost Explorer & Budgets:** Tracks AWS spending and triggers budget alerts.
+
+## Architecture Diagram
+
 <div align="center">
       <img src="Project-01/Images/Diagram.png" width=100%>
 </div>
   
-The website is fully private, served securely through CloudFront protected with AWS WAF monitored via CloudWatch and cost-managed with Budgets and Cost Explorer.
+
 ## 📋 Detailed Step-by-Step Setup
 
-### Step 1: Create a Private S3 Bucket
+### 🛠 Step 1:  Create a Private S3 Bucket
 
 1.	Navigate to AWS Console → S3 → **Create bucket**
 
-2.	Bucket name: ``awsfirst-project`` name should be unique
-
+2.	Enter a unique bucket name: ``awsfirst-project`` 
 
 3.	Block Public Access: **Enable** all options ✅
 <div align="center">
@@ -26,7 +41,8 @@ The website is fully private, served securely through CloudFront protected with 
 </div>
 
 4.	**Create bucket**
-5.  **Upload Website Files**:  1. Upload the ``index.html, CSS, JS files``
+
+5.  **Upload Website Files**: Open the bucket → Upload Add → ``index.html`` and other assets
 
 <div align="center">
       <img src="Project-01/Images/Part-01/S3/Upload.png" width=100%>
@@ -35,7 +51,7 @@ The website is fully private, served securely through CloudFront protected with 
       <img src="Project-01/Images/Part-01/S3/Addfiles.png" width=100%>
 </div>
 
-2.  **Files remain private** (**no public access**)
+**Files remain private** (**no public access**)
 
 <div align="center">
       <img src="Project-01/Images/Part-01/S3/CheckingBlock.png" width=100%>
@@ -44,12 +60,12 @@ The website is fully private, served securely through CloudFront protected with 
       <img src="Project-01/Images/Part-01/S3/Outputofs3.png" width=100%>
 </div>
 
-### Step 2: Create CloudFront Distribution with OAI
+### 🛠 Step 2: Create CloudFront Distribution with OAI
 
 1.	Go to CloudFront → **Create distribution**
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/CloudFront/distributionname.png" width=100%>
+      <img src="Project-01/Images/Part-01/Cloudfront/distributionname.png" width=100%>
 </div>
 
 2.	Origin domain: **Choose your S3 bucket**
@@ -59,11 +75,7 @@ The website is fully private, served securely through CloudFront protected with 
 </div>
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/CloudFront/browses3.png" width=100%>
-</div>
-
-<div align="center">
-      <img src="Project-01/Images/Part-01/CloudFront/settingofcloudfront.png" width=100%>
+      <img src="Project-01/Images/Part-01/CloudFront/browses3.png.png" width=100%>
 </div>
 
 3.	Origin access:
@@ -78,30 +90,30 @@ The website is fully private, served securely through CloudFront protected with 
 8.	**Create distribution** and wait until **Deployed**
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/CloudFront/wafdisable.png" width=100%>
+      <img src="Project-01/Images/Part-01/Cloudfront/wafdisable.png" width=100%>
 </div>
 
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/CloudFront/deployed.png" width=100%>
+      <img src="Project-01/Images/Part-01/Cloudfront/deployed.png" width=100%>
 </div>
 
-### Test:
-•	Visit your CloudFront domain 
+### Test: Visit your CloudFront domain 
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/CloudFront/link.png" width=100%>
+      <img src="Project-01/Images/Part-01/Cloudfront/link.png" width=100%>
 </div>
 
 **Alert:** Don't be panic.
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/CloudFront/outputofcloudfrontbefore.png" width=100%>
+      <img src="Project-01/Images/Part-01/Cloudfront/outputofcloudfrontbefore.png" width=100%>
 </div>
 
-**Solve:** Scroll down and Go to problem statement
+**Solve:** Scroll down this file and Go to problem statement
 
-### Step 3: Attach AWS WAF to CloudFront
+### 🛡 Step 3 : Attach AWS WAF to CloudFront
+
 1.	Go to WAF & Shield → Web ACLs → **Create web ACL**
 
 2.	Region: **Global (CloudFront)**
