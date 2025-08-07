@@ -208,7 +208,7 @@ The website is fully private, served securely through CloudFront protected with 
       <img src="Project-01/Images/Part-01/CloudWatch Log/6.png" width=100%>
 </div>
 
-4.	Enable Store full logs ✅
+4.	**Enable** Store full logs ✅
 
 <div align="center">
       <img src="Project-01/Images/Part-01/CloudWatch Log/7.png" width=100%>
@@ -222,7 +222,7 @@ The website is fully private, served securely through CloudFront protected with 
 
 ### ⏰ Step 5: Set Up Amazon SNS for Notifications (Independent)
 
-1.	Go to Amazon SNS → **Create topic**
+1.	Go to **Amazon SNS** → **Create topic**
 
 <div align="center">
       <img src="Project-01/Images/Part-02/SNS/1.png" width=100%>
@@ -236,10 +236,13 @@ The website is fully private, served securely through CloudFront protected with 
       <img src="Project-01/Images/Part-02/SNS/3.png" width=100%>
 </div>
 
-    ```Type: Standard```
-	```Sample Name: WAFNotifications```
-2.	Create subscription →
-             Protocol:  Email → **Add your email**
+   **Type:** Standard
+   
+   **Sample Name:** ``WAFNotifications``
+   
+2.	**Create subscription** →
+             Protocol:  
+             **Email** → **Add your email**
 
 <div align="center">
       <img src="Project-01/Images/Part-02/SNS/4.png" width=100%>
@@ -269,63 +272,83 @@ The website is fully private, served securely through CloudFront protected with 
 
 5.	You can now manually publish notifications or link with alarms later if needed
 
-<div align="center">
-      <img src="Project-01/Images/Part-02/Output/After crossing tresholed.png" width=100%>
-</div>
-
 ✅ SNS is now ready to send notifications separately.
 
 ### 💰 Step 6: Create a CloudWatch Alarm for WAF Activity
 1.	Go to CloudWatch → Alarms → **Create alarm**
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+      <img src="Project-01/Images/Part-02/CloudWatch Alarm/Alarm.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-02/CloudWatch Alarm/Create alarm.png" width=100%>
 </div>
 
 2.	Select metric: ```WAFV2 → WebACL → BlockedRequests```
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+      <img src="Project-01/Images/Part-02/CloudWatch Alarm/select metrics.png" width=100%>
+</div>
+<div align="center">
+      <img src="Project-01/Images/Part-02/CloudWatch Alarm/BlockWaf.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-02/CloudWatch Alarm/Namespace.png" width=100%>
 </div>
 
 3.	**Threshold example:** Trigger if >= 60 requests within 1 minutes
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+      <img src="Project-01/Images/Part-02/CloudWatch Alarm/threshold.png" width=100%>
 </div>
-
 4.	Alarm action:
 
       • Send notification to your existing SNS topic (WAFNotifications)
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+      <img src="Project-01/Images/Part-02/CloudWatch Alarm/alarm trigger.png" width=100%>
 </div>
 
 5.	Alarm name:  ```WAF-BlockedRequests-High``` → **Create alarm**
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+      <img src="Project-01/Images/Part-02/CloudWatch Alarm/alarm details.png" width=100%>
 </div>
 
 ✅ You will receive email alerts whenever the blocked requests exceed the threshold.
+<div align="center">
+      <img src="Project-01/Images/Part-02/Output/After crossing tresholed.png" width=100%>
+</div>
 
 ### Step 7: Enable Cost Explorer and AWS Budgets
 1.	Billing → Cost Explorer → **Enable Cost Explorer**
+<div align="center">
+      <img src="Project-01/Images/Part-02/Cost Explorer & Budget/1.png" width=100%>
+</div>
 
 2.	Budgets → **Create budget** → **Cost budget**
 
      ```Example: $5 per month``` Add your email for budget alerts
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+      <img src="Project-01/Images/Part-02/Cost Explorer & Budget/Budget.png" width=100%>
 </div>
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/WAF/final.png" width=100%>
+      <img src="Project-01/Images/Part-02/Cost Explorer & Budget/createbudget.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Project-01/Images/Part-02/Cost Explorer & Budget/3.png" width=100%>
 </div>
 
 3.	Monitor usage and spending in Cost Explorer dashboard
+
+<div align="center">
+      <img src="Project-01/Images/Part-02/Cost Explorer & Budget/cost of this project.png" width=100%>
+</div>
 
 ✅ You will receive alerts if AWS spending exceeds your defined budget.
 
@@ -341,6 +364,10 @@ The website is fully private, served securely through CloudFront protected with 
 
 •	**CloudWatch Alarm** for blocked traffic spikes.
 
+            <div align="center">
+                  <img src="Project-01/Images/Part-02/CloudWatch Alarm/alarm output.png" width=100%>
+            </div>
+
 •	Cost Management with **AWS Budgets and Cost Explorer**.
 
 ### Problem Statement ⚠️
@@ -355,7 +382,7 @@ The website is fully private, served securely through CloudFront protected with 
 
 **Solution:**
 
-1.	Updated the CloudFront Distribution → **Default Root Object to ``index.html``**
+1.	Updated the CloudFront Distribution → Settings → **Default Root Object to ``index.html``**
 2.	After deployment, the website loaded successfully.
 
 2️⃣**CloudWatch Logs did not capture WAF logs**
