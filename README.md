@@ -65,7 +65,7 @@ The website is fully private, served securely through CloudFront protected with 
 1.	Go to CloudFront → **Create distribution**
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/Cloudfront/distributionname.png" width=100%>
+      <img src="Project-01/Images/Part-01/CloudFront/distributionname.png" width=100%>
 </div>
 
 2.	Origin domain: **Choose your S3 bucket**
