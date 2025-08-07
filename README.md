@@ -101,13 +101,13 @@ The website is fully private, served securely through CloudFront protected with 
 ### Test: Visit your CloudFront domain 
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/Cloudfront/link.png" width=100%>
+      <img src="Project-01/Images/Part-01/CloudFront/link.png" width=100%>
 </div>
 
 **Alert:** Don't be panic.
 
 <div align="center">
-      <img src="Project-01/Images/Part-01/Cloudfront/outputofcloudfrontbefore.png" width=100%>
+      <img src="Project-01/Images/Part-01/CloudFront/outputofcloudfrontbefore.png" width=100%>
 </div>
 
 **Solve:** Scroll down this file and Go to problem statement
