@@ -237,7 +237,9 @@ The website is fully private, served securely through CloudFront protected with 
 </div>
 
    Type: Standard
-    Sample Name: ``WAFNotifications``
+   
+   Sample Name: ``WAFNotifications``
+   
 2.	Create subscription →
              Protocol:  Email → **Add your email**
 
