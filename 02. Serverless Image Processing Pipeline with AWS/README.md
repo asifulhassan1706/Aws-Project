@@ -41,13 +41,14 @@ Sample Name: ``image-destination-bucket`` (**Private**)
 
 ### Step 2. Create IAM Role for Lambda:
 
-•	**Trusted entity:**  AWS Service → Lambda.
+Go to AWS Console → Search IAM ROLE → Create Role.
 
 <div align="center">
       <img src="Images/IAM-ROLE/CreateRole.png" width=100%>
 </div>
 
 •	**Attach policies:**
+
 ```url
       AmazonS3FullAccess (read/write to both buckets)
       AmazonDynamoDBFullAccess (for metadata storage)
