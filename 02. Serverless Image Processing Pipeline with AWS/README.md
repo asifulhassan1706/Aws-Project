@@ -251,6 +251,10 @@ def lambda_handler(event, context):``
 </body>
 </html>
 ```
+<div align="center">
+      <img src="Images/CloudFront/Index.html image.png" width=100%>
+</div>
+
 **Default Root Object:** ``index.html``
 
 **Create Invitation**
