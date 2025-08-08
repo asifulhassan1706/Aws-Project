@@ -19,15 +19,33 @@ This guide walks you through building a serverless image processing pipeline usi
 
 1.	**Source bucket  -** Sample Name: ``image-source-bucket`` (**Private**)
 
-2. **Destination bucket  -**  Sample Name: ``image-destination-bucket`` (**Private**)
+<div align="center">
+      <img src="Images/Source-Bucket/SourceBucketName.png" width=100%>
+</div>
+
+2. **Destination bucket  -**  
+
+Sample Name: ``image-destination-bucket`` (**Private**)
 
 3.	**Enable** Block all public access for both.
 
-4.	Add appropriate **bucket policies** for **Lambda and CloudFront access**.
+4.	Add appropriate **bucket policies in destination bucket** for **Lambda and CloudFront access**.
+<div align="center">
+      <img src="Images/Destination-Bucket/Bucket-Policy.png" width=100%>
+</div>
+
+**Both Bucket:**
+<div align="center">
+      <img src="Images/Output/both bukcet.png" width=100%>
+</div>
 
 ### Step 2. Create IAM Role for Lambda:
 
 •	**Trusted entity:**  AWS Service → Lambda.
+
+<div align="center">
+      <img src="Images/IAM-ROLE/CreateRole.png" width=100%>
+</div>
 
 •	**Attach policies:**
 ```url
@@ -35,32 +53,81 @@ This guide walks you through building a serverless image processing pipeline usi
       AmazonDynamoDBFullAccess (for metadata storage)
       CloudWatchLogsFullAccess` (for debugging)
 ```
+<div align="center">
+      <img src="Images/IAM-ROLE/AmazonS3FullAccess.png" width=100%>
+</div>
+<div align="center">
+      <img src="Images/IAM-ROLE/AmazonDynamoDBFullAccess.png" width=100%>
+</div>
+<div align="center">
+      <img src="Images/IAM-ROLE/CloudWatchLogsFullAccess.png" width=100%>
+</div>
+<div align="center">
+      <img src="Images/IAM-ROLE/LambdaFullAccess.png" width=100%>
+</div>
+
 • **Name it:** ``LambdaImageProcessingRole``
+<div align="center">
+      <img src="Images/IAM-ROLE/ViewRole.png" width=100%>
+</div>
+
 ##### Why needed: Without this role, Lambda will fail to access S3, DynamoDB or logs.
-________________________________________
+
 ### Step 3. Create DynamoDB Table:
 **AWS Console → DynamoDB →** **Create table**
-
 **Table name:** ``ImageMetadata``
+<div align="center">
+      <img src="Images/DynamoDB/TableName.png" width=100%>
+</div>
 
 **Partition key:** filename (String)
 
 Leave other options `default` → **Create table**
+<div align="center">
+      <img src="Images/DynamoDB/CreateTable.png" width=100%>
+</div>
 
-________________________________________
 ### Step 4. Create Lambda Function:
 
 **Sample Name:** `ImageProcessingFunction`
 
 **Runtime:** `Python 3.12`
+<div align="center">
+      <img src="Images/Lambda/CreateLambdaFunction.png" width=100%>
+</div>
 
 **Execution role:** `LambdaImageProcessingRole`
 
-**Attach Pillow Layer** (Example ARN for us-east-1):
+<div align="center">
+      <img src="Images/Lambda/LambdaImageProcessingRole.png" width=100%>
+</div>
+
+**Attach Pillow Layer** (Example ARN for us-east-1) [Scroll down in Lambda Function]:
 
 ```url
    arn:aws:lambda:us-east-1:770693421928:layer:Klayers-p312-Pillow:6
 ```
+<div align="center">
+      <img src="Images/Lambda/LambdaLayer.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Images/Lambda/AddLayer.png" width=100%>
+</div>
+
+**Configuration:**
+
+<div align="center">
+      <img src="Images/Lambda/Lambda-Configuration.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Images/Lambda/Configurationedit.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Images/Lambda/TimeOutSetting.png" width=100%>
+</div>
 
 **Lambda Code:**
 
@@ -125,41 +192,93 @@ def lambda_handler(event, context):``
   ]
 }
 ```
+<div align="center">
+      <img src="Images/Lambda/LambdaTest.png" width=100%>
+</div>
+
+<div align="center">
+      <img src="Images/Lambda/TestJasonCode.png" width=100%>
+</div>
+
+**Output:**
+<div align="center">
+      <img src="Images/Lambda/TestImage.png" width=100%>
+</div>
+
 ### Step 5.  Set Environment Variables:
 
 **SOURCE_BUCKET =** your source bucket name
 
 **DEST_BUCKET =** your destination bucket name
+<div align="center">
+      <img src="Images/Trigger/AddTrigger.png" width=100%>
+</div>
+<div align="center">
+      <img src="Images/Destination-Bucket/DestinationBucket.png" width=100%>
+</div>
+
+**Final Output:**
+<div align="center">
+      <img src="Images/Trigger/LambdaTrigger.png" width=100%>
+</div>
 
 ### Step 6. Configure CloudFront:
 
-**Origin:** ``processed-image-bucket.s3.amazonaws.com``
+**AWS Console → DynamoDB →** **Create Distribution**
+**Set Distribution Name**
+<div align="center">
+      <img src="Images/CloudFront/DistributionName.png" width=100%>
+</div>
+
+**Select Origin of Destination Bucket:** ``processed-image-bucket.s3.amazonaws.com``
+
+<div align="center">
+      <img src="Images/CloudFront/BucketSelection.png" width=100%>
+</div>
 
 **Set Redirect HTTP to HTTPS**
 
 **Cache policy:** CachingOptimized
-
-**Default Root Object:** ``index.html``
-
-**Upload an ``index.html`` file in the destination bucket for testing:**
+**Create Distribution**
+**Go to S3 destination Bucket and Upload an ``index.html`` file in the destination bucket for testing:**
 ```url
 <!DOCTYPE html>
 <html>
 <body>
-<h1>Processed Image</h1>```
+<h1>Processed Image</h1>
 <img src="processed-photo.jpg" alt="Processed Image">
 </body>
 </html>
 ```
+**Default Root Object:** ``index.html``
+
+**Create Invitation**
+
+<div align="center">
+      <img src="Images/CloudFront/Create-Invitation.png" width=100%>
+</div>
 
 ### Step 7. Test the Pipeline:
 1.	Upload ``photo.jpg`` → **raw bucket**.
 
+<div align="center">
+      <img src="Images/Source-Bucket/image upload.png" width=100%>
+</div>
+
 2.	**Lambda processes it** → Upload ``processed-photo.jpg`` to processed bucket.
+<div align="center">
+      <img src="Images/Destination-Bucket/2ndBucket.png" width=100%>
+</div>
 
 3.	**DynamoDB** entry created with metadata.
+<div align="center">
+      <img src="Images/DynamoDB/DynamoDB Output.png" width=100%>
+</div>
 
 4.	View via **CloudFront URL**.
+<div align="center">
+      <img src="Images/Output/CLoudFrontOutput.png" width=100%>
+</div>
 
 ### Notes:
 
