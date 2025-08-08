@@ -225,7 +225,7 @@ def lambda_handler(event, context):``
 
 ### Step 6. Configure CloudFront:
 
-**AWS Console → DynamoDB →** **Create Distribution**
+**AWS Console → CloudFront →** **Create Distribution**
 **Set Distribution Name**
 <div align="center">
       <img src="Images/CloudFront/DistributionName.png" width=100%>
@@ -240,7 +240,9 @@ def lambda_handler(event, context):``
 **Set Redirect HTTP to HTTPS**
 
 **Cache policy:** CachingOptimized
+
 **Create Distribution**
+
 **Go to S3 destination Bucket and Upload an ``index.html`` file in the destination bucket for testing:**
 ```url
 <!DOCTYPE html>
