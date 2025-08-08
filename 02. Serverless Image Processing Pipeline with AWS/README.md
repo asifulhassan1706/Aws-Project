@@ -225,7 +225,7 @@ def lambda_handler(event, context):``
 
 ### Step 6. Configure CloudFront:
 
-**AWS Console → DynamoDB →** **Create Distribution**
+**AWS Console → CloudFront →** **Create Distribution**
 **Set Distribution Name**
 <div align="center">
       <img src="Images/CloudFront/DistributionName.png" width=100%>
