@@ -96,7 +96,7 @@ A simple **Serverless Project** built with **AWS API Gateway**, **Lambda**, **Dy
       <img src="Images/IAMROLE/IAMROLE.png" width=100%>
 </div>
 
-### **4️⃣ Lambda Function Code and ADDing Layer**
+### **4️⃣ Lambda Function Code and Adding Layer**
 
 **Replace the default code with:**
 
