@@ -56,6 +56,7 @@ A simple **Serverless Project** built with **AWS API Gateway**, **Lambda**, **Dy
 <div align="center">
       <img src="Images/SNS/CreateTopicSNS.png" width=100%>
 </div>
+
 4. Click **Create Topic**.
 
 **B. Subscribe**
@@ -66,6 +67,7 @@ A simple **Serverless Project** built with **AWS API Gateway**, **Lambda**, **Dy
 <div align="center">
       <img src="Images/SNS/CreateSubscriptionSNS.png" width=100%>
 </div>
+
 4. Confirm the subscription via the confirmation link.
 <div align="center">
       <img src="Images/SNS/AWSNotification.png" width=100%>
@@ -82,6 +84,7 @@ A simple **Serverless Project** built with **AWS API Gateway**, **Lambda**, **Dy
 <div align="center">
       <img src="Images/Lambda/CreateLambda.png" width=100%>
 </div>
+
 4. Click **Create Function**.
 
 **Add IAM Permissions to Lambda Execution Role**:
@@ -201,6 +204,7 @@ def lambda_handler(event, context):
 <div align="center">
       <img src="Images/API GATEWAY/stage.png" width=100%>
 </div>
+
 4. Enable **CORS** (for browser requests).
 5. Deploy API → Copy the **Invoke URL**.
 
@@ -211,6 +215,7 @@ def lambda_handler(event, context):
 <div align="center">
       <img src="Images/Lambda/AddTrigger.png" width=100%>
 </div>
+
 3. Leave **Destination** empty (default).
 
 
@@ -223,6 +228,7 @@ def lambda_handler(event, context):
   "body": "{\"customerName\": \"John Doe\", \"productName\": \"Wireless Mouse\"}"
 }
 ```
+
 <div align="center">
       <img src="Images/Output/TestLambda.png" width=100%>
 </div>
