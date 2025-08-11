@@ -40,6 +40,9 @@ A simple **Serverless Project** built with **AWS API Gateway**, **Lambda**, **Dy
 1. Open **AWS Console** → Go to **DynamoDB** → **Create Table**.
 2. **Table Name**: `FileMetaData`
 3. **Primary Key**: `FileName` (String)
+<div align="center">
+      <img src="Images/DynamoDB/CreateTable.png" width=100%>
+</div>
 4. Click **Create Table**.
 
 ### **2️⃣ SNS Topic and Subscription Setup**
@@ -49,6 +52,9 @@ A simple **Serverless Project** built with **AWS API Gateway**, **Lambda**, **Dy
 1. AWS Console → **SNS** → **Topics** → **Create Topic**.
 2. **Type**: Standard
 3. **Name**: `file-upload-notification`
+<div align="center">
+      <img src="Images/SNS/CreateTopicSNS.png" width=100%>
+</div>
 4. Click **Create Topic**.
 
 **B. Subscribe**
@@ -56,13 +62,25 @@ A simple **Serverless Project** built with **AWS API Gateway**, **Lambda**, **Dy
 1. Open your SNS topic → Click **Create Subscription**.
 2. **Protocol**: Email (or SMS)
 3. **Endpoint**: Your email/phone.
+<div align="center">
+      <img src="Images/SNS/CreateSubscriptionSNS.png" width=100%>
+</div>
 4. Confirm the subscription via the confirmation link.
+<div align="center">
+      <img src="Images/SNS/AWSNotification.png" width=100%>
+</div>
+<div align="center">
+      <img src="Images/SNS/ConfrimNotification.png" width=100%>
+</div>
 
 ### **3️⃣ Lambda Function Setup**
 
 1. Go to **AWS Lambda** → **Create Function**.
 2. **Name**: `processFileUpload`.
 3. **Runtime**: Python 3.12.
+<div align="center">
+      <img src="Images/Lambda/CreateLambda.png" width=100%>
+</div>
 4. Click **Create Function**.
 
 **Add IAM Permissions to Lambda Execution Role**:
@@ -70,8 +88,11 @@ A simple **Serverless Project** built with **AWS API Gateway**, **Lambda**, **Dy
 * DynamoDB → `PutItem` on your table.
 * SNS → `Publish` to your topic.
 * CloudWatch Logs → Full access (for debugging).
+<div align="center">
+      <img src="Images/IAMROLE/IAMROLE.png" width=100%>
+</div>
 
-### **4️⃣ Lambda Function Code**
+### **4️⃣ Lambda Function Code and ADDing Layer**
 
 **Replace the default code with:**
 
@@ -142,11 +163,43 @@ def lambda_handler(event, context):
         }
 ```
 
+#### Adding a Layer to AWS Lambda:
+
+1. **Scroll down** in the Lambda function configuration page.
+2. On the **right-hand side** locate the **Layers** section and click **Add a layer**.
+<div align="center">
+      <img src="Images/Lambda/LambdaLayer.png" width=100%>
+</div>
+
+3. Choose **Specify an ARN**.
+4. Enter the following example ARN for the `us-east-1` region:
+
+   ```
+   arn:aws:lambda:us-east-1:770693421928:layer:Klayers-p312-Pillow:6
+   ```
+5. Click **Add** to attach the layer to your Lambda function.
+
 ### **5️⃣ API Gateway Setup**
 
 1. AWS Console → **API Gateway** → **Create API** (HTTP or REST).
+<div align="center">
+      <img src="Images/API GATEWAY/SNSAPI.png" width=100%>
+</div>
+
 2. Create a **POST** route (e.g., `/create-order`).
+<div align="center">
+      <img src="Images/API GATEWAY/Routes.png" width=100%>
+</div>
+
 3. **Integration** → Select your Lambda function (`processOrder`).
+<div align="center">
+      <img src="Images/API GATEWAY/Attach Integration.png" width=100%>
+</div>
+
+4. SCroll Down the Left Menu of this Function and Click Deploy and create Stage
+<div align="center">
+      <img src="Images/API GATEWAY/stage.png" width=100%>
+</div>
 4. Enable **CORS** (for browser requests).
 5. Deploy API → Copy the **Invoke URL**.
 
@@ -154,6 +207,9 @@ def lambda_handler(event, context):
 
 1. Go to your **Lambda function**.
 2. **Add Trigger** → Select **API Gateway** → Choose your API.
+<div align="center">
+      <img src="Images/Lambda/AddTrigger.png" width=100%>
+</div>
 3. Leave **Destination** empty (default).
 
 
@@ -166,11 +222,21 @@ def lambda_handler(event, context):
   "body": "{\"customerName\": \"John Doe\", \"productName\": \"Wireless Mouse\"}"
 }
 ```
+<div align="center">
+      <img src="Images/Output/TestLambda.png" width=100%>
+</div>
 
-✅ Check:
+✅ **Check:**
 
 * **DynamoDB** has the order record.
+<div align="center">
+      <img src="Images/DynamoDB/DynamoDB Output.png" width=100%>
+</div>
+
 * **SNS** sends the email/SMS notification.
+<div align="center">
+      <img src="Images/Output/OrderConfirmation.png" width=100%>
+</div>
 
 ## 📌 Notes
 
