@@ -43,6 +43,7 @@ A simple **Serverless Project** built with **AWS API Gateway**, **Lambda**, **Dy
 <div align="center">
       <img src="Images/DynamoDB/CreateTable.png" width=100%>
 </div>
+
 4. Click **Create Table**.
 
 ### **2️⃣ SNS Topic and Subscription Setup**
