@@ -33,6 +33,12 @@ A simple **Serverless Project** built with **AWS API Gateway**, **Lambda**, **Dy
 * **DynamoDB** → Stores order data.
 * **SNS** → Sends notifications to subscribers.
 
+## Architecture
+
+<div align="center">
+      <img src="Images/Diagram.png" width=100%>
+</div>
+
 ## 📋 Step-by-Step Setup
 
 ### **1️⃣ DynamoDB Setup**
