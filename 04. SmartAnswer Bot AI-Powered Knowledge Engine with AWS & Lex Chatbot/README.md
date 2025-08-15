@@ -18,8 +18,7 @@ The goal of this project is to build a robust, AI-driven chatbot that efficientl
       <img src="Images/Diagram.png" width=100%>
 </div
 
-
-## 📄Detailed Step-by-Step Guide
+## 📄**Detailed Step-by-Step Guide**
 
 ### ✅ Step 1: Enable Amazon Bedrock Model Access
 
