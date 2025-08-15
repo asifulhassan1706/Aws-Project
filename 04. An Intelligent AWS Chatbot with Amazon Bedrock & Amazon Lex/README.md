@@ -1,4 +1,4 @@
-# SmartAnswer Bot: AI-Powered Knowledge Engine with AWS & Lex Chatbot
+# Building an Intelligent AWS Chatbot with Amazon Bedrock & Amazon Lex 🤖
 
 ## 📄 Project Objective
 
