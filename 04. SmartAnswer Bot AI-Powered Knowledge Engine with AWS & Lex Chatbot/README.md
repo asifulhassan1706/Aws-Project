@@ -191,7 +191,7 @@ Create and configure an Amazon Lex V2 bot to handle user conversations, define i
       <img src="Images/Amazon Lex/IntentName.png" width=100%>
 </div>
 
-8. Add sample utterances like “Hello,” “Hi,” or “Good Morning.”
+8. Add sample utterances like `“Hello” “Hi”` or `“Good Morning.”`
 <div align="center">
       <img src="Images/Amazon Lex/AddUtterance.png" width=100%>
 </div>
@@ -199,7 +199,7 @@ Create and configure an Amazon Lex V2 bot to handle user conversations, define i
       <img src="Images/Amazon Lex/Sample Utterances.png" width=100%>
 </div>
 
-9. Define the initial response, e.g., “Hi! How can I help you?”
+9. Define the initial response, e.g., `“Hi! How can I help you?”`
 <div align="center">
       <img src="Images/Amazon Lex/Initial Response.png" width=100%>
 </div>
