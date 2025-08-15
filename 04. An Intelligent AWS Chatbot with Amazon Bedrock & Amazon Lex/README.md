@@ -14,12 +14,13 @@ The goal of this project is to build a robust, AI-driven chatbot that efficientl
 5. **AWS IAM**: Manages permissions to ensure secure access to AWS services.
 
 ## Architecture:
+
 <div align="center">
       <img src="Images/Diagram.png" width=100%>
 </div
 
 
-**## 📄 Detailed Step-by-Step Guide**
+## 📄 Detailed Step-by-Step Guide:
 
 ### ✅ Step 1: Enable Amazon Bedrock Model Access
 
