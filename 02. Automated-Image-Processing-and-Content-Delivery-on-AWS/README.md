@@ -1,4 +1,4 @@
-# Serverless Image Processing Pipeline with AWS 
+# Automated Image Processing and Content Delivery on AWS
 
 This guide walks you through building a serverless image processing pipeline using AWS services: 
 
